@@ -48,21 +48,17 @@ body {
   justify-content: center;
   color: var(--clr-green);
   text-align: center;
-  opacity:1;
-  animation: fade-out 1s ease-in-out 5s;
+  animation: close 1s ease-in-out 3s;
   animation-fill-mode:forwards;
 }
 
 .loading h1 {
   font-size: 2em;
   font-weight: 900;
+  animation:fade-in-out 3.5s ease-in-out;
+  opacity:0;
 }
 
-.loading h1::before {
-  content: '';
-  animation: type 2s ease-in-out 1;
-  animation-fill-mode: forwards;
-}
 
 header {
     width:100%;
@@ -276,98 +272,29 @@ topic-grid div {
     transition:transform 0.2s ease-in-out;
 }
 
-@keyframes type {
-  0% {
-    content: '';
-  }
-
-  5% {
-    content: "T";
-  }
-
-  10% {
-    content: "Th";
-  }
-
-  15% {
-    content: "The";
-  }
-
-  20% {
-    content: "The ";
-  }
-
-  25% {
-    content: "The E";
-  }
-
-  30% {
-    content: "The Ea";
-  }
-
-  35% {
-    content: "The Ear";
-  }
-
-  40% {
-    content: "The Eart";
-  }
-
-  45% {
-    content: "The Earth";
-  };
-
-  50% {
-    content: "The Earth ";
-  }
-
-  55% {
-    content: "The Earth N";
-  }
-
-  60% {
-    content: "The Earth Ne";
-  }
-
-  65% {
-    content: "The Earth Nee";
-  }
-
-  70% {
-    content: "The Earth Need";
-  }
-
-  75% {
-    content: "The Earth Needs";
-  }
-
-  80% {
-    content: "The Earth Needs "
-  }
-
-  85% {
-    content: "The Earth Needs Y";
-  }
-
-  90% {
-    content: "The Earth Needs Yo";
-  }
-
-  95% {
-    content: "The Earth Needs You";
-  }
-
-  100% {
-    content: "The Earth Needs You.";
-  }
-}
-
-@keyframes fade-out {
-    from {
+@keyframes fade-in-out {
+    0% {
+        opacity:0;
+    }
+    25% {
         opacity:1;
     }
-    to {
+    75% {
+        opacity:1;
+    }
+    100% {
         opacity:0;
-        z-index:-1;
+    }
+}
+
+
+@keyframes close {
+    from {
+        transform:scale(1,1);
+        transform-origin:bottom;
+    }
+    to {
+        transform:scale(1,0);
+        transform-origin:bottom;
     }
 }
